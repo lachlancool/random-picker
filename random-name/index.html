@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Boy Name</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CEZTSNSX7G"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-CEZTSNSX7G');
+    </script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px 20px; background: linear-gradient(to bottom, #f5f5f5, #e0f7fa); color: #333; }
+        h1 { font-size: 50px; margin-bottom: 10px; color: #2e7d32; text-shadow: 1px 1px 2px #aaa; }
+        button { padding: 15px 30px; font-size: 20px; border-radius: 12px; background-color:#4CAF50; color:white; margin-top:15px; cursor:pointer; box-shadow:0 4px 8px rgba(0,0,0,0.2); transition: background-color 0.3s, transform 0.2s; }
+        button:hover { background-color:#45a049; transform:translateY(-2px); }
+        #result { margin-top:20px; font-size:26px; font-weight:bold; color:#2e7d32; }
+        .house-nav { margin-bottom: 30px; text-align: center; }
+        .house-nav a { margin: 0 10px; text-decoration: none; font-size: 18px; padding: 10px 16px; background: #4CAF50; color: white; border-radius: 10px; box-shadow:0 3px 6px rgba(0,0,0,0.2); }
+        .house-nav a:hover { background: #45a049; }
+    </style>
+</head>
+<body>
+
+    <nav class="house-nav">
+        <a href="../index.html">🏠 Outside</a>
+        <a href="../random-picker/index.html">🎲 Random Picker</a>
+        <a href="index.html">👦 Random Boy Name</a>
+    </nav>
+
+    <h1>Random Boy Name</h1>
+    <p>👦 Click the button to get a random boy’s name!</p>
+    <button onclick="pickName()">Pick Name</button>
+    <div id="result"></div>
+
+    <script>
+        const names = ["Lachlan","Angus","Liam","Noah","Oliver","James","William","Benjamin","Lucas","Henry","Alexander",
+"Mason","Michael","Ethan","Daniel","Jacob","Logan","Jackson","Levi","Sebastian","Evan","Jack","Owen",
+"Theodore","Aiden","Samuel","Joseph","David","Carter","Wyatt","Matthew","Luke","Theo","Gabriel",
+"Julian","Isaac","Jayden","Lincoln","Anthony","Hudson","Dylan","Ezra","Thomas","Charles",
+"Christopher","Andrew","Joshua","Nathan","Caleb","Ryan","Miles","Eli","Nolan","Christian","Aaron",
+"Cameron","Hunter","Jonathan","Axel","Emmanuel","Cooper","Connor","Robert","Jordan","Ian","Carson",
+"Nicholas","Dominic","Austin","Brooks","Xavier","Joe","Adam","Wesley","Bennett","Declan","Emmett",
+"Ryder","Brayden","Harrison","Cole","Maxwell","Leo","Amir","Jason","Vincent","Chase","Nathaniel",
+"Bryce","Milo","Jude","Graham","Ryka","Cody","Max","Seth","Elliott","Finn","Jasper","Luka",
+"Dawson","Cayden","Riley","Zachary","Ivan","Jett"];
+
+        function pickName(){
+            const randomName = names[Math.floor(Math.random() * names.length)];
+            document.getElementById("result").textContent = randomName;
+        }
+    </script>
+
+</body>
+</html>
