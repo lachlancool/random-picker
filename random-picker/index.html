@@ -12,7 +12,6 @@
         gtag('config', 'G-CEZTSNSX7G');
     </script>
     <style>
-        /* Body & headings */
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -20,18 +19,8 @@
             background: linear-gradient(to bottom, #f5f5f5, #e0f7fa);
             color: #333;
         }
-        h1 {
-            font-size: 50px;
-            margin-bottom: 10px;
-            color: #2e7d32;
-            text-shadow: 1px 1px 2px #aaa;
-        }
-        p {
-            font-size: 20px;
-            margin-bottom: 20px;
-        }
-
-        /* Buttons */
+        h1 { font-size: 50px; margin-bottom: 10px; color: #2e7d32; text-shadow: 1px 1px 2px #aaa; }
+        p { font-size: 20px; margin-bottom: 20px; }
         a.button, button {
             display: inline-block;
             padding: 15px 30px;
@@ -45,84 +34,49 @@
             margin-top: 15px;
             cursor: pointer;
         }
-        a.button:hover, button:hover {
-            background-color: #45a049;
-            transform: translateY(-2px);
-        }
-
-        /* Inputs & textarea */
-        input, textarea {
-            width: 300px;
-            padding: 10px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-        }
-
-        /* Result display */
-        #result {
-            margin-top: 20px;
-            font-size: 26px;
-            font-weight: bold;
-            color: #2e7d32;
-        }
-
-        /* Comments */
-        #commentFeed div {
-            border-bottom: 1px solid #ccc;
-            margin-bottom: 10px;
-            padding: 10px;
-            text-align: left;
-            max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
-            background-color: #fafafa;
-            border-radius: 8px;
-        }
-
-        #response {
-            margin-top:10px;
-            color: green;
-        }
+        a.button:hover, button:hover { background-color: #45a049; transform: translateY(-2px); }
+        input, textarea { width: 300px; padding: 10px; border-radius: 8px; border: 1px solid #ccc; font-size: 16px; }
+        #result { margin-top: 20px; font-size: 26px; font-weight: bold; color: #2e7d32; }
+        #commentFeed div { border-bottom: 1px solid #ccc; margin-bottom: 10px; padding: 10px; text-align: left; max-width: 400px; margin-left:auto; margin-right:auto; background-color:#fafafa; border-radius:8px; }
+        #response { margin-top:10px; color:green; }
+        .house-nav { margin-bottom: 30px; text-align: center; }
+        .house-nav a { margin: 0 10px; text-decoration: none; font-size: 18px; padding: 10px 16px; background: #4CAF50; color: white; border-radius: 10px; box-shadow:0 3px 6px rgba(0,0,0,0.2); }
+        .house-nav a:hover { background: #45a049; }
     </style>
 </head>
 <body>
 
-    <!-- Back button -->
-    <a class="button" href="../index.html">← Back outside</a>
+    <nav class="house-nav">
+        <a href="../index.html">🏠 Outside</a>
+        <a href="index.html">🎲 Random Picker</a>
+        <a href="../random-name/index.html">👦 Random Boy Name</a>
+    </nav>
 
     <h1>Random Picker</h1>
     <p>🎲 Pick something fun! Enter items separated by commas.</p>
 
-    <!-- Picker input -->
     <input type="text" id="items" placeholder="Apple, Banana, Orange"><br>
     <button onclick="pickRandom()">Pick Random</button>
     <div id="result"></div>
 
-    <!-- Comments section -->
     <h2>Comments</h2>
     <form id="commentForm">
         <input type="text" id="name" placeholder="Your Name" required><br><br>
         <textarea id="comment" placeholder="Your Comment" required></textarea><br><br>
-        <button type="submit">Submit Comment</button>              
+        <button type="submit">Submit Comment</button>
     </form>
     <div id="response"></div>
     <div id="commentFeed"></div>
 
     <script>
-        // Random Picker function
         function pickRandom() {
             const input = document.getElementById("items").value;
             const items = input.split(",").map(item => item.trim()).filter(item => item);
-            if (items.length === 0) {
-                document.getElementById("result").textContent = "Please enter at least two items.";
-                return;
-            }
+            if (items.length === 0) { document.getElementById("result").textContent = "Please enter at least two items."; return; }
             const randomItem = items[Math.floor(Math.random() * items.length)];
             document.getElementById("result").textContent = randomItem;
         }
 
-        // Comment system
         const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwdRI4c5nlAAkb-joyiQLe0frBGpWXOiUV80PlSNYHStkbs5EQ-mmqnmkWTUdAk86g2hQ/exec";
         document.getElementById("commentForm").addEventListener("submit", function(e){
             e.preventDefault();
@@ -138,9 +92,7 @@
                 document.getElementById("commentForm").reset();
                 loadComments();
             })
-            .catch(err => {
-                document.getElementById("response").textContent = "Error submitting comment.";
-            });
+            .catch(err => { document.getElementById("response").textContent = "Error submitting comment."; });
         });
 
         function loadComments(){
