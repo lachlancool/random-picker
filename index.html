@@ -39,17 +39,46 @@
             border-radius: 15px;
             box-shadow: 0 5px 10px rgba(0,0,0,0.2);
             transition: background-color 0.3s, transform 0.2s;
+            margin: 10px;
         }
         a.button:hover {
             background-color: #45a049;
         }
+        .house-nav {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .house-nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 16px;
+            background: #4CAF50;
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+        }
+        .house-nav a:hover {
+            background: #45a049;
+        }
+        footer {
+            margin-top: 50px; 
+            font-size: 14px; 
+            color: #555;
+        }
     </style>
 </head>
 <body>
+
     <h1>Lachlan's House</h1>
     <p>🌿 Welcome! Step inside to explore tiny projects and random fun.</p>
-    <a class="button" href="random-picker/index.html">Enter the house</a>
-    <footer style="margin-top:50px; font-size:14px; color: #555;">
+
+    <nav class="house-nav">
+        <a href="random-picker/index.html">🎲 Random Picker</a>
+        <a href="random-name/index.html">👦 Random Boy Name</a>
+    </nav>
+
+    <footer>
         Made with 💚 by Lachlan
     </footer>
 </body>
